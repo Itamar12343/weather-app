@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import Searchbar from "./components/searchbar";
 import DisplayData from "./components/displayData";
+import Background from "./components/background";
 
 function App() {
   const text = useSelector(state=> state);
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <Searchbar/>
       <DisplayData/>
+      <Background/>
       {text}
     </div>
   );
