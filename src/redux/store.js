@@ -1,4 +1,13 @@
-import reducer from "./reducer";
 import { createStore } from "redux";
 
-const store = createStore(reducer, {});
+function reducer(state = 0, action) {
+    switch (action.type) {
+        case "change":
+            return action.text;
+        default:
+            return state;
+    }
+}
+
+const store = createStore(reducer);
+export default store;
