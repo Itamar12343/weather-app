@@ -10,6 +10,44 @@
     border-radius: 20px;
 }
 
+.temp {
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+.weather-img {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../imgs/suny-1.png");
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 22%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: suny 3s infinite linear;
+}
+
+@keyframes suny {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.title {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
 @media screen and (max-width: 785px) {
     .display-box {
         height: 60%;

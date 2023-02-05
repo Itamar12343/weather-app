@@ -1,11 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
 import Searchbar from "./components/searchbar";
 import DisplayData from "./components/displayData";
 import Background from "./components/background";
 
 function App() {
   //const text = useSelector(state=> state);
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   //console.log(text);
 
