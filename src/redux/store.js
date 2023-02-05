@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 
-function reducer(state = 0, action) {
+function reducer(state = "", action) {
     switch (action.type) {
         case "change":
             return action.text;
