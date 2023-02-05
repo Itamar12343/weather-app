@@ -4,29 +4,35 @@
     top: 10%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    height: 80px;
-    width: 80%;
+    height: 70px;
+    width: 700px;
     z-index: 2;
     border-radius: 40px;
+}
+
+@media screen and (max-width: 770px) {
+    .search {
+        width: 80%;
+    }
 }
 
 .input {
     position: relative;
     top: 50%;
-    left: 48%;
+    left: 54%;
     transform: translate(-50%, -50%);
     font-size: 40px;
     outline: none;
-    width: 86%;
+    width: 80%;
     border: none;
+    margin-right: 20px;
 }
 
 .search-btn {
-    font-size: 60px;
+    font-size: 50px;
     position: absolute;
-    right: -6px;
+    left: 40px;
     top: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
     color: #aaa;
 }
