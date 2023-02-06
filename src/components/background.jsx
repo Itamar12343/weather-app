@@ -1,8 +1,16 @@
-import "../style/background.css"
+import "../style/background.css";
+import store from "../redux/store";
+import { useState } from "react";
+
 const Background = () => {
+  const [state, setState] = useState(null);
+
+  store.subscribe(()=>{
+    setState(store.getState().weatherReducer);
+  });
     return ( 
         <div className="container">
-          <div className="background"></div>
+          <div className={`background-${state}`}></div>
         </div>
      );
 }

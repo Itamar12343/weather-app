@@ -1,5 +1,44 @@
-.background {
+.background-suny {
     background-image: url("/src/imgs/suny.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: blur(8px);
+    height: 120vh;
+    width: 120vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.background-cloudy {
+    background-image: url("/src/imgs/cloudy.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: blur(8px);
+    height: 120vh;
+    width: 120vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.background-rainy {
+    background-image: url("/src/imgs/rainy.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: blur(8px);
+    height: 120vh;
+    width: 120vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.background-night {
+    background-image: url("/src/imgs/night.jpg");
     background-position: center;
     background-size: cover;
     filter: blur(8px);

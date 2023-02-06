@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../style/displaydata.css";
 import store from "../redux/store";
+import {useDispatch} from "react-redux";
 
 const DisplayData = () => {
     const apiKey = "5a43de308e2894b86234fca27712c179";
@@ -10,6 +11,7 @@ const DisplayData = () => {
     const [img, setImg] = useState(null);
     const [description, setDescription] = useState(null);
     const [locationErr, setLocationErr] = useState(false);
+    const dispatch = useDispatch();
 
     store.subscribe(()=>{
         setcity(store.getState().searchReducer);
@@ -28,10 +30,13 @@ const DisplayData = () => {
 
             if(weatherState === "Clear"){
                 setImg("suny");
+                dispatch({type: "set", text: "suny"});
             }else if(weatherState === "Clouds"){
                 setImg("cloudy");
+                dispatch({type: "set", text: "cloudy"});
             }else{
                 setImg("rainy");
+                dispatch({type: "set", text: "rainy"});
             }
         });
     }
@@ -79,10 +84,13 @@ const DisplayData = () => {
 
             if(weatherState === "Clear"){
                 setImg("suny");
+                dispatch({type: "set", text: "suny"});
             }else if(weatherState === "Clouds"){
                 setImg("cloudy");
+                dispatch({type: "set", text: "cloudy"});
             }else{
                 setImg("rainy");
+                dispatch({type: "set", text: "rainy"});
             }
          })
          .catch((error) => {
