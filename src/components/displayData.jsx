@@ -6,6 +6,8 @@ const DisplayData = () => {
     const apiKey = "5a43de308e2894b86234fca27712c179";
     const [city, setcity] = useState("");
     const [title, setTitle] = useState("");
+    const [temp, setTemp] = useState("");
+    const [svg, setsvg] = useState(null);
 
     store.subscribe(()=>{
         setcity(store.getState);
@@ -15,7 +17,8 @@ const DisplayData = () => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
         .then(respons=> respons.json())
         .then(data=>{
-            console.log(data);
+            const gotTemp = Math.round(data.main.temp - 273);
+            setTemp(gotTemp);
         });
     }
 
@@ -43,7 +46,7 @@ const DisplayData = () => {
 
     useEffect(()=>{
         if(city.length > 0){
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},uk&appid=${apiKey}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
         .then((response) =>{ 
             if(!response.ok){
                 throw Error(response.status);
@@ -53,6 +56,17 @@ const DisplayData = () => {
         })
         .then((data) => {
            console.log(data);
+           const gotTemp = Math.round(data.main.temp - 273);
+            setTemp(gotTemp);
+            setTitle(data.name);
+            const weatherState = data.weather[0].main;
+            const weatherDescription = data.weather[0].description;
+
+            if(weatherState === "Clear"){
+                setsvg("suny");
+            }else if(weatherState === "Clouds"){
+                setsvg("cloudy");
+            }
          })
          .catch((error) => {
            console.log("error");
@@ -64,7 +78,7 @@ const DisplayData = () => {
         <div className="display-box">
             <div className="title">{title}</div>
             <div className="weather-img"></div>
-            <div className="temp">16</div>
+            <div className="temp">{temp}</div>
         </div>
      );
 }
