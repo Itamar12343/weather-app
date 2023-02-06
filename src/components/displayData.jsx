@@ -95,7 +95,7 @@ const DisplayData = () => {
             }
          })
          .catch((error) => {
-           console.log("error");
+           //console.log("error");
          });
         }
     },[city]);
