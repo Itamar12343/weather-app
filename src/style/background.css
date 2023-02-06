@@ -9,6 +9,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: 0.4s;
 }
 
 .background-cloudy {
@@ -22,6 +23,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: 0.4s;
 }
 
 .background-rainy {
@@ -35,19 +37,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-
-.background-night {
-    background-image: url("/src/imgs/night.jpg");
-    background-position: center;
-    background-size: cover;
-    filter: blur(8px);
-    height: 120vh;
-    width: 120vw;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transition: 0.4s;
 }
 
 .container {
