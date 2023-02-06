@@ -9,9 +9,10 @@ const DisplayData = () => {
     const [temp, setTemp] = useState("");
     const [img, setImg] = useState(null);
     const [description, setDescription] = useState(null);
+    const [locationErr, setLocationErr] = useState(false);
 
     store.subscribe(()=>{
-        setcity(store.getState);
+        setcity(store.getState().searchReducer);
     });
 
     function getCurrentWeather(latitude,longitude){
@@ -38,6 +39,7 @@ const DisplayData = () => {
     function gotlocation (location){
         const latitude = location.coords.latitude;
         const longitude = location.coords.longitude;
+        setLocationErr(false);
         getCurrentWeather(latitude,longitude);
         const apiToGetTheState = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
         fetch(apiToGetTheState)
@@ -48,7 +50,7 @@ const DisplayData = () => {
     }
 
     function errlocation(location){
-        console.log("err location");
+        setLocationErr(true);
     }
    
     useEffect(()=>{
@@ -94,7 +96,8 @@ const DisplayData = () => {
             <div className="title">{title}</div>
             <div className="description">{description}</div>
             <div className={`weather-${img}-img`}></div>
-            <div className="temp">{temp}</div>
+            <div className="temp">{temp}c</div>
+            {locationErr && <div className="err">you didn't allow location premition</div>}
         </div>
      );
 }

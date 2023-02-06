@@ -18,6 +18,18 @@
     font-size: 70px;
 }
 
+.err {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(253, 226, 145);
+    padding: 30px;
+    border-radius: 10px;
+}
+
 .weather-suny-img {
     background-position: center;
     background-size: cover;

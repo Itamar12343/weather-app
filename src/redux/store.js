@@ -1,13 +1,9 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import searchReducer from "./searchReducer";
+import weatherReducer from "./weatherReducer";
 
-function reducer(state = "", action) {
-    switch (action.type) {
-        case "change":
-            return action.text;
-        default:
-            return state;
-    }
-}
 
-const store = createStore(reducer);
+const reducers = combineReducers({ searchReducer, weatherReducer });
+
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
