@@ -12,13 +12,13 @@
 
 .temp {
     position: absolute;
-    left: 70%;
+    left: 76%;
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 70px;
 }
 
-.weather-img {
+.weather-suny-img {
     background-position: center;
     background-size: cover;
     background-image: url("../imgs/suny-1.png");
@@ -40,9 +40,69 @@
     }
 }
 
-.title {
+.weather-rainy-img {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../imgs/rainy-1.png");
+    height: 200px;
+    width: 200px;
     position: absolute;
+    left: 22%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: rainy 1s infinite;
+}
+
+@keyframes rainy {
+    0% {
+        left: 20%;
+    }
+    50% {
+        left: 30%;
+    }
+    100% {
+        left: 20%;
+    }
+}
+
+.weather-cloudy-img {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../imgs/cloudy-1.png");
+    height: 160px;
+    width: 200px;
+    position: absolute;
+    left: 22%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: cloudy 1s infinite linear;
+}
+
+@keyframes cloudy {
+    0% {
+        transform: translate(-50%, -50%) rotate(-10deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-10deg);
+    }
+}
+
+.title {
+    position: relative;
+    text-align: center;
     top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+.description {
+    position: relative;
+    text-align: center;
+    top: 76%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 40px;

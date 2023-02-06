@@ -7,7 +7,8 @@ const DisplayData = () => {
     const [city, setcity] = useState("");
     const [title, setTitle] = useState("");
     const [temp, setTemp] = useState("");
-    const [svg, setsvg] = useState(null);
+    const [img, setImg] = useState(null);
+    const [description, setDescription] = useState(null);
 
     store.subscribe(()=>{
         setcity(store.getState);
@@ -19,6 +20,18 @@ const DisplayData = () => {
         .then(data=>{
             const gotTemp = Math.round(data.main.temp - 273);
             setTemp(gotTemp);
+            setTitle(data.name);
+            const weatherState = data.weather[0].main;
+            const weatherDescription = data.weather[0].description;
+            setDescription(weatherDescription);
+
+            if(weatherState === "Clear"){
+                setImg("suny");
+            }else if(weatherState === "Clouds"){
+                setImg("cloudy");
+            }else{
+                setImg("rainy");
+            }
         });
     }
 
@@ -55,17 +68,19 @@ const DisplayData = () => {
             }
         })
         .then((data) => {
-           console.log(data);
            const gotTemp = Math.round(data.main.temp - 273);
             setTemp(gotTemp);
             setTitle(data.name);
             const weatherState = data.weather[0].main;
             const weatherDescription = data.weather[0].description;
+            setDescription(weatherDescription);
 
             if(weatherState === "Clear"){
-                setsvg("suny");
+                setImg("suny");
             }else if(weatherState === "Clouds"){
-                setsvg("cloudy");
+                setImg("cloudy");
+            }else{
+                setImg("rainy");
             }
          })
          .catch((error) => {
@@ -77,7 +92,8 @@ const DisplayData = () => {
     return ( 
         <div className="display-box">
             <div className="title">{title}</div>
-            <div className="weather-img"></div>
+            <div className="description">{description}</div>
+            <div className={`weather-${img}-img`}></div>
             <div className="temp">{temp}</div>
         </div>
      );
