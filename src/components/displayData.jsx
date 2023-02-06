@@ -77,6 +77,7 @@ const DisplayData = () => {
         .then((data) => {
            const gotTemp = Math.round(data.main.temp - 273);
             setTemp(gotTemp);
+            setLocationErr(false);
             setTitle(data.name);
             const weatherState = data.weather[0].main;
             const weatherDescription = data.weather[0].description;
@@ -105,7 +106,7 @@ const DisplayData = () => {
             <div className="description">{description}</div>
             <div className={`weather-${img}-img`}></div>
             <div className="temp">{temp}c</div>
-            {locationErr && <div className="err">you didn't allow location premition</div>}
+            {locationErr && <div className="err">you didn't allow location</div>}
         </div>
      );
 }

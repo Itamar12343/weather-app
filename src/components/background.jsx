@@ -3,7 +3,7 @@ import store from "../redux/store";
 import { useState } from "react";
 
 const Background = () => {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState("suny");
 
   store.subscribe(()=>{
     setState(store.getState().weatherReducer);
